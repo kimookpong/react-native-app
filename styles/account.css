@@ -1,0 +1,119 @@
+/* Login */
+.tbLogin {width:96%; height:100%; border-spacing:0;border-collapse:collapse;}
+.tbLogin td {vertical-align:middle;}
+.tbLogin .textH {font-size:3em; color:#424242;}
+.tr1Login {height:15%;text-align:center;vertical-align:bottom;}
+.tr2Login {height:45%;}
+.tr3Login {height:20%;}
+.tr4Login {height:20%;}
+.btLogin {background-color:#4268B3;color:#fff;border:none;font-weight:bold;text-align:center;font-size:1.3em;letter-spacing:0.8px;
+    width:150px;padding:10px 0;margin:auto;border-radius:4px;letter-spacing:1px;margin-top: 30px;}
+.tableLogin {background-color:transparent; width:92%; margin:auto; height:100%; border-spacing:0; border-collapse:collapse;}
+.tableLogin td { vertical-align:middle; text-align:left;}
+.tableLogin .divTopic {line-height:40px; font-size:1.3em;}
+.tableLogin input[type="text"],input[type="number"], input[type="password"] {width:100%; height:40px; font-size:18px; border:solid 1px #999;
+    margin-bottom:10px; border-radius:4px; box-sizing:border-box; background-color:transparent; padding-left:10px;}
+.blockReg {width:160px;height:90px;margin:auto;}
+.QRimg {width:42px;height:42px;display:block;margin:6px auto;padding:4px;border:solid 1px #ddd;border-radius:4px;}
+.txtReg {font-size:1.1em;color:#007aff;} 
+.iconUser {background-image: url('../images/icon-setting.png'); background-size:auto 28px; background-repeat:no-repeat;
+    background-position:center center; display:inline-block; width:28px; height:28px;}
+
+/* Loginpin */
+.divPin {width:95%; max-width:500px; height:100%; margin:auto;}
+.table1 {width:100%; height:100%; border-spacing:0; border-collapse:collapse;}
+.table1 td {vertical-align:middle; text-align:center;}
+
+.tableD {width:94%; margin:auto; height:100%; border-spacing:0; border-collapse:collapse;}
+.tableD tr {height:25%;}
+.tableD td {vertical-align:middle; text-align:center; font-family:Arial; font-size:30px; width:33.33%; cursor:default;}
+.tableD .xNum {width:70px; height:70px; margin:auto; color:#424242; border-radius:50%; line-height:68px;
+                border:solid 2px #E0E0E0; display:block; box-sizing:border-box;}
+.tableD .xNum.active {background-color:rgba(161, 205, 243, 0.3); color:#31487C; border:solid 2px #31487C;}
+.tableD .xNum.clear {font-size:24px; color:#333;}
+.tableD .xNum.backsp {background-image: url("../images/backspace.png"); background-repeat: no-repeat; background-size: 30px auto; background-position: center center;}
+
+.tdName {font-size:1.3em; font-weight:bold; color:#424242; letter-spacing:0.8px;vertical-align:bottom !important;}
+.divImg {height:80px; padding:5px 0;}
+.imgPro {display:inline-block;width:90px;height:90px;border-radius:50%;object-fit:cover;border:solid 2px #d5d5d7;}
+.version {text-align:center !important;color:#556080;font-size:1.2em;padding-bottom:3px;vertical-align:bottom;padding-bottom:10px;}
+.setting1 {width:100%;text-align:right !important;vertical-align:bottom !important}
+.setting {background-image: url('../images/icon-setting.png'); background-repeat:no-repeat;
+    background-size:auto 30px;background-position:center bottom;width:30px; height:20px; margin-right:5px;width:40px;}
+.tr1{height:12%;}
+.tr2{height:14%;}
+.tr3{height:10%;}
+.tr4{height:13%;}
+#pwdShow span {display:inline-block; width:18px; height:18px; border-radius:50%; background-color:#e7eced; border:solid 2px #556080; margin:3px 10px;}
+#pwdShow span.active {background-color:#556080;}
+
+
+/* CSS */
+.button-18 {
+  align-items: center;
+  background-color: #792fad;
+  border: 0;
+  border-radius: 100px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 20px;
+  width: 90%;
+  max-width: 480px;
+  min-height: 40px;
+  min-width: 0px;
+  overflow: hidden;
+  padding: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  touch-action: manipulation;
+  user-select: none;
+  vertical-align: middle;
+}
+
+.upper {
+    width: 95%;
+    height: 100px;
+    /* background-color: red;  */
+    background-image: url('../images/bg-wu1.jpg');
+    margin: auto;
+}
+
+.upper img {
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.user {
+    position: relative;
+}
+
+.profile img {
+    height: 8rem;
+    width: 8rem;
+}
+
+.profile {
+    position: absolute;
+    top: -90px;
+    left: 50%;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    transform: translate(-50%, -0%);
+}
+.divProfile{width: 95%; height: 100px; background-color: red; margin: auto;}
+
+
+.container {
+    background-color: rgb(44, 0, 95);
+    width: 90%;
+    height: 100%;
+  }
+
+
