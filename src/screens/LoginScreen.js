@@ -12,9 +12,9 @@ import { AuthContext } from "../context/AuthContext";
 
 const LoginScreen = ({ navigation }) => {
   const { login } = useContext(AuthContext);
-  const [username, setUsername] = useState({ value: "hakim.mu", error: "" });
+  const [username, setUsername] = useState({ value: "", error: "" });
   const [password, setPassword] = useState({
-    value: "daddyKim#1989WU",
+    value: "",
     error: "",
   });
   const [loading, setLoading] = useState(false);
