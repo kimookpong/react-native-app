@@ -1,9 +1,11 @@
-import { View, StyleSheet, TouchableOpacity, Animated } from "react-native";
+import { View, StyleSheet, TouchableOpacity } from "react-native";
 import React from "react";
 import { Text } from "react-native-paper";
 import { MaterialCommunityIcons } from "react-native-vector-icons";
+import { useTheme } from "react-native-paper";
 
 const FooterBar = ({ navigation, currentScreen }) => {
+  const theme = useTheme();
   const menuItems = [
     { icon: "home", label: "หน้าหลัก", screen: "Dashboard" },
     { icon: "newspaper", label: "ข่าวสาร", screen: "News" },
@@ -13,7 +15,9 @@ const FooterBar = ({ navigation, currentScreen }) => {
   ];
 
   return (
-    <View style={styles.footerBar}>
+    <View
+      style={[styles.footerBar, { backgroundColor: theme.colors.background }]}
+    >
       {menuItems.map((item, index) => (
         <TouchableOpacity
           key={index}
@@ -43,7 +47,6 @@ const styles = StyleSheet.create({
   footerBar: {
     flexDirection: "row",
     justifyContent: "space-around",
-    backgroundColor: "white",
     paddingVertical: 10,
     width: "100%",
     elevation: 10,

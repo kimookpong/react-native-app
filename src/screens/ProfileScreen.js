@@ -1,65 +1,86 @@
 import React, { useContext } from "react";
 import { View, StyleSheet } from "react-native";
-import { Text, Button, Avatar, Card } from "react-native-paper";
+import { Text, Avatar, Card, Divider } from "react-native-paper";
 import { AuthContext } from "../context/AuthContext";
-import BackButton from "../components/BackButton";
-import Header from "../components/Header";
-import { Appbar } from "react-native-paper";
-import TopBar from "../components/TopBar";
-import Background from "../components/Background";
+import BackgroundImage from "../components/BackgroundImage";
 
 export default function ProfileScreen({ navigation }) {
   const { user, logout } = useContext(AuthContext);
+
   return (
-    <Background>
-      <TopBar title="โปรไฟล์" back={() => navigation.navigate("Dashboard")} />
+    <BackgroundImage>
+      {/* <TopBar title="โปรไฟล์" back={() => navigation.navigate("Dashboard")} /> */}
       <View
         style={{
           flex: 1,
           padding: 5,
+          paddingTop: 50,
           width: "100%",
           alignSelf: "center",
           alignItems: "center",
         }}
       >
-        <Avatar.Image
-          size={100}
-          source={{
-            uri: "https://hrms.wu.ac.th/index.php?r=image&id=6300000354",
-          }} // เปลี่ยนเป็นรูปโปรไฟล์จริงได้
-          style={styles.avatar}
-        />
+        <View style={styles.profileSection}>
+          <Avatar.Image
+            size={150}
+            style={styles.avatar}
+            source={{ uri: user?.avatar || "https://i.pravatar.cc/150?img=3" }}
+          />
+          <Text variant="headlineMedium" style={styles.name}>
+            {user?.fullname_th}
+          </Text>
+          <Text variant="bodyLarge" style={styles.email}>
+            {user?.fullname_en}
+          </Text>
+        </View>
 
         <Card style={styles.card}>
           <Card.Content>
-            <Text variant="headlineMedium">{user?.fullname_th}</Text>
             <Text variant="bodyLarge">
-              อีเมล: {user?.person_id || "ยังไม่มีอีเมล"}
+              {user?.position_th || "ไม่มีตำแหน่ง"}
             </Text>
             <Text variant="bodyLarge">
-              Token: {user?.token || "ไม่มี Token"}
+              {user?.division_th || "ไม่มีหน่วยงาน"}
             </Text>
+            <Divider style={{ marginVertical: 10 }} />
+            <Text style={styles.token}>{user?.token || "ไม่มี Token"}</Text>
           </Card.Content>
         </Card>
-
-        <Button mode="contained" style={styles.button} onPress={logout}>
-          ออกจากระบบ
-        </Button>
       </View>
-    </Background>
+    </BackgroundImage>
   );
 }
 
 const styles = StyleSheet.create({
   avatar: {
-    marginBottom: 20,
+    marginVertical: 20,
   },
   card: {
     width: "100%",
     marginBottom: 20,
     padding: 10,
+    paddingBottom: 0,
   },
   button: {
     width: "80%",
+  },
+  profileSection: {
+    alignItems: "center",
+
+    marginBottom: 20,
+  },
+  name: {
+    fontWeight: "bold",
+    marginTop: 10,
+  },
+  email: {
+    marginTop: 5,
+    color: "gray",
+  },
+  token: {
+    fontSize: 8,
+    alignSelf: "flex-end",
+    marginTop: 5,
+    color: "gray",
   },
 });
