@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "wu-staff",
-    "slug": "wu-staff",
+    "name": "app-colab-chatgpt",
+    "slug": "app-colab-chatgpt",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
