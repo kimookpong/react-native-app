@@ -5,19 +5,18 @@ import {
   MD3DarkTheme,
   MD3LightTheme,
 } from "react-native-paper";
-import { theme } from "../core/theme";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 import AuthNavigator from "./AuthNavigator";
 import MainNavigator from "./MainNavigator";
-import { PinScreen, PinSetScreen } from "../screens";
-import { View } from "react-native";
+import { PinScreen, PinSetScreen, BlankScreen } from "../screens";
 
 const Stack = createStackNavigator();
 
 export default function AppNavigator() {
   const { user, pin, pinAccess, isDarkMode } = useContext(AuthContext);
   const getInitialRoute = () => {
+    if (!user) return "Blank";
     if (user == null) return "Auth";
     if (pin == null) return "PinSet";
     if (!pinAccess) return "Pin";
@@ -31,7 +30,9 @@ export default function AppNavigator() {
           initialRouteName={getInitialRoute()}
           screenOptions={{ headerShown: false }}
         >
-          {user == null ? (
+          {!user ? (
+            <Stack.Screen name="Blank" component={BlankScreen} />
+          ) : user == null ? (
             <Stack.Screen name="Auth" component={AuthNavigator} />
           ) : pin == null ? (
             <Stack.Screen name="PinSet" component={PinSetScreen} />

@@ -11,5 +11,4 @@ export default function App() {
   );
 }
 
-// Register the main component
-AppRegistry.registerComponent("YourAppName", () => App);
+AppRegistry.registerComponent("main", () => App);
