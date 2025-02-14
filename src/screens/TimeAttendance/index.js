@@ -1,21 +1,21 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import WalletMain from "./Main";
-import WalletMain2 from "./Main2";
+import Schedule from "./Schedule";
+import Timestamp from "./Timestamp";
 
 const Tab = createBottomTabNavigator();
 
-export default function WalletScreen() {
+export default function TimeAttendanceScreen() {
   return (
     <Tab.Navigator
       tabBar={(props) => null}
-      initialRouteName="Wallet1"
+      initialRouteName="Schedule"
       screenOptions={{
         headerShown: false,
       }}
     >
-      <Tab.Screen name="Wallet1" component={WalletMain} />
-      <Tab.Screen name="Wallet2" component={WalletMain2} />
+      <Tab.Screen name="Schedule" component={Schedule} />
+      <Tab.Screen name="Timestamp" component={Timestamp} />
     </Tab.Navigator>
   );
 }

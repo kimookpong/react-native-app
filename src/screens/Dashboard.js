@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Dimensions,
   BackHandler,
+  TouchableOpacity,
 } from "react-native";
 import {
   Appbar,
@@ -23,13 +24,22 @@ const width = Dimensions.get("window").width;
 
 const Dashboard = ({ navigation }) => {
   const theme = useTheme();
-  const data = [0, 1, 2, 3, 4, 5];
+  const data = [
+    {
+      url: "https://clib.psu.ac.th/greenlibrary/images/2023/02/17/banner-green.png",
+    },
+    {
+      url: "https://dszw1qtcnsa5e.cloudfront.net/community/20250124/10003ce7-01ef-4f5b-b18b-8bf4ca421792/381.png",
+    },
+    {
+      url: "https://n2nsp.com/wp-content/uploads/2021/12/20211209_n2nsp_page_ocr-768x256.jpg",
+    },
+  ];
   const exitApp = () => {
     BackHandler.exitApp(); // ปิดแอปทันที
   };
   return (
     <View style={{ flex: 1, backgroundColor: theme.colors.background }}>
-      {/* Top Bar */}
       <Appbar.Header>
         <Appbar.Content title="ค้นหา" />
         <Appbar.Action icon="bell" onPress={exitApp} />
@@ -46,7 +56,7 @@ const Dashboard = ({ navigation }) => {
               <Image
                 index={index}
                 source={{
-                  uri: `https://placehold.jp/900x300.png`,
+                  uri: data[index].url,
                 }}
                 style={styles.itemImage}
               />
@@ -84,15 +94,28 @@ const Dashboard = ({ navigation }) => {
             }}
           >
             {[
-              { icon: "trophy", label: "ภารกิจพิชิตทรูมันนี่" },
-              { icon: "google", label: "Google Play Zone" },
-              { icon: "gold", label: "ซื้อ/ออมทอง" },
-              { icon: "clipboard-text", label: "บิลทรูทั้งหมด" },
-              { icon: "gift", label: "แลกรางวัล" },
-              { icon: "ticket", label: "โปรโมชั่น" },
+              {
+                icon: "trophy",
+                label: "ภารกิจพิชิตทรูมันนี่",
+                screen: "Wallet",
+              },
+              {
+                icon: "google",
+                label: "TimeAttendance",
+                screen: "TimeAttendance",
+              },
+              { icon: "gold", label: "ซื้อ/ออมทอง", screen: "Mission" },
+              {
+                icon: "clipboard-text",
+                label: "บิลทรูทั้งหมด",
+                screen: "Mission",
+              },
+              { icon: "gift", label: "แลกรางวัล", screen: "Mission" },
+              { icon: "ticket", label: "โปรโมชั่น", screen: "Mission" },
             ].map((item, index) => (
-              <View
+              <TouchableOpacity
                 key={index}
+                onPress={() => navigation.navigate(item.screen)}
                 style={{
                   width: "30%",
                   alignItems: "center",
@@ -101,7 +124,7 @@ const Dashboard = ({ navigation }) => {
               >
                 <IconButton icon={item.icon} size={40} />
                 <Text>{item.label}</Text>
-              </View>
+              </TouchableOpacity>
             ))}
           </View>
 

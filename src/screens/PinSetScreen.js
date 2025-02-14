@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { View, StyleSheet } from "react-native";
-import Background from "../components/Background";
+import BackgroundImage from "../components/BackgroundImage";
 import { Text, Button } from "react-native-paper";
 import Header from "../components/Header";
 import PinButton from "../components/PinButton";
@@ -32,7 +32,7 @@ const PinScreen = ({ navigation }) => {
   };
 
   return (
-    <Background>
+    <BackgroundImage>
       <View style={styles.container}>
         <Header>ตั้งค่า PIN 6 หลัก</Header>
 
@@ -56,7 +56,7 @@ const PinScreen = ({ navigation }) => {
           </PinButton>
         ))}
       </View>
-    </Background>
+    </BackgroundImage>
   );
 };
 

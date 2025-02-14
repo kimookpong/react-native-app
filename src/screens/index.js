@@ -9,3 +9,4 @@ export { default as SettingsScreen } from "./SettingsScreen";
 export { default as QrScreen } from "./QrScreen";
 export { default as WalletScreen } from "./WalletScreen";
 export { default as NewsScreen } from "./NewsScreen";
+export { default as TimeAttendanceScreen } from "./TimeAttendance";

@@ -16,7 +16,7 @@ const Stack = createStackNavigator();
 export default function AppNavigator() {
   const { user, pin, pinAccess, isDarkMode } = useContext(AuthContext);
   const getInitialRoute = () => {
-    if (!user) return "Blank";
+    // if (!user) return "Blank";
     if (user == null) return "Auth";
     if (pin == null) return "PinSet";
     if (!pinAccess) return "Pin";
@@ -30,9 +30,7 @@ export default function AppNavigator() {
           initialRouteName={getInitialRoute()}
           screenOptions={{ headerShown: false }}
         >
-          {!user ? (
-            <Stack.Screen name="Blank" component={BlankScreen} />
-          ) : user == null ? (
+          {user == null ? (
             <Stack.Screen name="Auth" component={AuthNavigator} />
           ) : pin == null ? (
             <Stack.Screen name="PinSet" component={PinSetScreen} />

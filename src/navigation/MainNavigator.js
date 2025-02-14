@@ -7,6 +7,7 @@ import {
   QrScreen,
   WalletScreen,
   NewsScreen,
+  TimeAttendanceScreen,
 } from "../screens";
 import FooterBar from "../components/FooterBar";
 
@@ -26,6 +27,7 @@ export default function MainNavigator() {
       <Tab.Screen name="Qr" component={QrScreen} />
       <Tab.Screen name="Wallet" component={WalletScreen} />
       <Tab.Screen name="News" component={NewsScreen} />
+      <Tab.Screen name="TimeAttendance" component={TimeAttendanceScreen} />
     </Tab.Navigator>
   );
 }
