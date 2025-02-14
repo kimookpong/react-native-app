@@ -8,6 +8,7 @@ import {
   WalletScreen,
   NewsScreen,
   TimeAttendanceScreen,
+  WelfareScreen,
 } from "../screens";
 import FooterBar from "../components/FooterBar";
 
@@ -28,6 +29,7 @@ export default function MainNavigator() {
       <Tab.Screen name="Wallet" component={WalletScreen} />
       <Tab.Screen name="News" component={NewsScreen} />
       <Tab.Screen name="TimeAttendance" component={TimeAttendanceScreen} />
+      <Tab.Screen name="Welfare" component={WelfareScreen} />
     </Tab.Navigator>
   );
 }
