@@ -8,10 +8,10 @@ import { AuthContext } from "../../context/AuthContext";
 const WelfareScreen = () => {
   const { user } = useContext(AuthContext);
   const  personID = user.person_id;
-  const url = "https://welfare.wu.ac.th/mobile?personid=" + personID;
+  const url = "https://e-jpas.wu.ac.th/mobile.php?personid=" + personID;
   return (
     <Background>
-      {/* <TopBar title="ข่าวสาร" /> */}
+      {<TopBar title="สวัสดิการ" />}
       <WebView url={url} />
     </Background>
   );

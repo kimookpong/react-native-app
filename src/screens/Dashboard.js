@@ -104,7 +104,7 @@ const Dashboard = ({ navigation }) => {
                 label: "TimeAttendance",
                 screen: "TimeAttendance",
               },
-              { icon: "gold", label: "สวัสดิการ", screen: "Welfare" },
+              { icon: "wallet", label: "สวัสดิการ", screen: "Welfare" },
               {
                 icon: "clipboard-text",
                 label: "บิลทรูทั้งหมด",
