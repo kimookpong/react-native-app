@@ -107,9 +107,9 @@ const Dashboard = ({ navigation }) => {
           >
             {[
               {
-                icon: "trophy",
-                label: "ภารกิจพิชิตทรูมันนี่",
-                screen: "Wallet",
+                icon: "map-marker",
+                label: "เช็คอิน",
+                screen: "CheckIn",
               },
               {
                 icon: "google",
