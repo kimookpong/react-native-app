@@ -9,10 +9,13 @@ import {
   NewsScreen,
   TimeAttendanceScreen,
   WelfareScreen,
+  NotificationScreen,
 } from "../screens";
 import FooterBar from "../components/FooterBar";
 
 const Tab = createBottomTabNavigator();
+
+
 
 export default function MainNavigator() {
   return (
@@ -30,6 +33,7 @@ export default function MainNavigator() {
       <Tab.Screen name="News" component={NewsScreen} />
       <Tab.Screen name="TimeAttendance" component={TimeAttendanceScreen} />
       <Tab.Screen name="Welfare" component={WelfareScreen} />
+      <Tab.Screen name="Notification" component={NotificationScreen} />
     </Tab.Navigator>
   );
 }

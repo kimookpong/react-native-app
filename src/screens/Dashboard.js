@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef , useContext } from "react";
 import {
   View,
   ScrollView,
@@ -19,11 +19,21 @@ import {
 } from "react-native-paper";
 
 import Carousel from "react-native-reanimated-carousel";
+import { AuthContext } from "../context/AuthContext";
 
 const width = Dimensions.get("window").width;
 
+
+
+
+
+
+
 const Dashboard = ({ navigation }) => {
   const theme = useTheme();
+  const { user } = useContext(AuthContext);
+  const personID = user.person_id;
+
   const data = [
     {
       url: "https://clib.psu.ac.th/greenlibrary/images/2023/02/17/banner-green.png",
@@ -38,11 +48,14 @@ const Dashboard = ({ navigation }) => {
   const exitApp = () => {
     BackHandler.exitApp(); // ปิดแอปทันที
   };
+  const Notification = () => {
+    navigation.navigate("Notification");
+  };
   return (
     <View style={{ flex: 1, backgroundColor: theme.colors.background }}>
       <Appbar.Header>
-        <Appbar.Content title="ค้นหา" />
-        <Appbar.Action icon="bell" onPress={exitApp} />
+        <Appbar.Content title="สวัสดี" />
+        <Appbar.Action icon="bell" onPress={Notification} />
         <Appbar.Action icon="exit-to-app" onPress={exitApp} />
       </Appbar.Header>
 
@@ -70,7 +83,7 @@ const Dashboard = ({ navigation }) => {
 
       <View>
         <ScrollView>
-          <Card style={{ margin: 10 }}>
+          <Card style={{ margin: 10 ,backgroundColor: '#ffcc00'}}>
             <Card.Content>
               <View
                 style={{
@@ -78,10 +91,9 @@ const Dashboard = ({ navigation }) => {
                   justifyContent: "space-between",
                 }}
               >
-                <Text variant="titleMedium">วอลเล็ท</Text>
-                <Button mode="outlined">เติมเงิน</Button>
+                <Text variant="headlineMedium">ประกาศ</Text>
               </View>
-              <Text variant="headlineMedium">฿ 202.20</Text>
+              <Text variant="titleMedium">ประกาศจาก สำนักงานอธิการบดี แจ้งเพื่อทราบ</Text>
             </Card.Content>
           </Card>
 
@@ -107,8 +119,8 @@ const Dashboard = ({ navigation }) => {
               { icon: "wallet", label: "สวัสดิการ", screen: "Welfare" },
               {
                 icon: "clipboard-text",
-                label: "บิลทรูทั้งหมด",
-                screen: "Mission",
+                label: "แจ้งเตือน",
+                screen: "Notification",
               },
               { icon: "gift", label: "แลกรางวัล", screen: "Mission" },
               { icon: "ticket", label: "โปรโมชั่น", screen: "Mission" },
