@@ -213,9 +213,9 @@ const Schedule = ({ navigation }) => {
               ? <ActivityIndicator size="large" color="blue" /> 
               : <View>
                   <List.Section>
-                    {shift.map((row) => (
+                    {shift.map((row,index) => (
                       <View>
-                        <List.Item
+                        <List.Item key={index}
                           title={<Text style={styles.labelDate}>{"วันที่ " + getDatetext(row.startDate, "th", "l")}</Text>}
                           description={<View><Text>{row.shiftTypeName + ": " + row.shiftName}</Text><Text>{"เข้า: " + row.timeCheckin + "   ออก: " + row.timeCheckout}</Text></View>}
                           // left={props => <List.Icon {...props} icon="circle" color="red" />}
