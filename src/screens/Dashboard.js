@@ -77,7 +77,7 @@ const Dashboard = ({ navigation }) => {
             </Card.Content>
           </Card>
 
-          <MenuContent />
+          <MenuContent navigation={navigation} />
 
           <Divider style={{ marginVertical: 10 }} />
           <ScrollView

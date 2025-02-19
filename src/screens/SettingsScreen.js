@@ -10,7 +10,7 @@ export default function SettingsScreen({ navigation }) {
 
   return (
     <Background>
-      <TopBar title="ตั้งค่า" backgroundColor="#580376" color="#ffffff" />
+      <TopBar title="ตั้งค่า" />
       <List.Section style={styles.container}>
         <List.Item
           title="เปลี่ยน PIN"
