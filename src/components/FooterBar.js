@@ -17,7 +17,8 @@ const FooterBar = ({ navigation, currentScreen }) => {
 
   return (
     <View
-      style={[styles.footerBar, { backgroundColor: theme.colors.background }]}
+      // style={[styles.footerBar, { backgroundColor: theme.colors.background }]}
+      style={styles.footerBar}
     >
       {menuItems.map((item, index) => (
         <TouchableOpacity
@@ -32,14 +33,7 @@ const FooterBar = ({ navigation, currentScreen }) => {
           /> */}
           <item.svg width={36} height={36} />
 
-          <Text
-            style={[
-              styles.menuLabel,
-              { color: currentScreen === item.screen ? "blue" : "gray" },
-            ]}
-          >
-            {item.label}
-          </Text>
+          <Text style={styles.menuLabel}>{item.label}</Text>
         </TouchableOpacity>
       ))}
     </View>
@@ -51,6 +45,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     paddingVertical: 10,
+    backgroundColor: "#580376",
     width: "100%",
     elevation: 10,
     shadowColor: "#000",
@@ -64,6 +59,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   menuLabel: {
+    color: "#ffffff",
     fontSize: 12,
     marginTop: 2,
   },

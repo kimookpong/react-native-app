@@ -35,6 +35,7 @@ const Dashboard = ({ navigation }) => {
   const theme = useTheme();
   const { user } = useContext(AuthContext);
   const personID = user.person_id;
+  console.log(user);
 
   const data = [
     {
@@ -56,7 +57,7 @@ const Dashboard = ({ navigation }) => {
   return (
     <View style={{ flex: 1, backgroundColor: theme.colors.background }}>
       <Appbar.Header>
-        <Appbar.Content title="สวัสดี" />
+        <Appbar.Content title={"สวัสดี " + user.fullname_th} />
         <Appbar.Action icon="bell" onPress={Notification} />
         <Appbar.Action icon="exit-to-app" onPress={exitApp} />
       </Appbar.Header>
