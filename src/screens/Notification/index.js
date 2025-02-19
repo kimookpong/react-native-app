@@ -139,7 +139,7 @@ const WebViewScreen = ({ route }) => {
   return <WebView source={{ uri: url }} />;
 };
 
-const NotificationScreen = ({ navigation }) => (
+const NotificationScreen = () => (
   <Tab.Navigator>
     <Tab.Screen
       name="งานที่ต้องทำ"
@@ -189,7 +189,7 @@ const NotificationScreen = ({ navigation }) => (
   </Tab.Navigator>
 );
 
-const AppNavigator = () => (
+const AppNavigator = ({ navigation }) => (
   <Background>
     <TopBar title="แจ้งเตือน" back={() => navigation.navigate("Dashboard")} />
     <Stack.Navigator>
