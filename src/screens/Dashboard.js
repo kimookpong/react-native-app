@@ -228,10 +228,25 @@ const Dashboard = ({ navigation }) => {
           >
             {["ฟรี ป้าย QR", "GrabFood ลด 50%", "บัญชีออมทอง"].map(
               (promo, index) => (
-                <Card key={index} style={{ marginRight: 10, width: 200 }}>
+                <Card
+                  key={index}
+                  style={{
+                    marginRight: 10,
+                    width: 250,
+                    backgroundColor: "#6a11cb",
+                  }}
+                >
                   <Card.Content>
-                    <Text>{promo}</Text>
+                    <Text variant="titleLarge" style={{ color: "#fff" }}>
+                      {promo}
+                    </Text>
+                    <Text variant="bodyMedium" style={{ color: "#fff" }}>
+                      Card content
+                    </Text>
                   </Card.Content>
+                  <Card.Actions>
+                    <Button mode="elevated">อ่าน</Button>
+                  </Card.Actions>
                 </Card>
               )
             )}
