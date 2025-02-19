@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useRef, useContext } from "react";
 import {
   View,
   ScrollView,
@@ -8,8 +8,17 @@ import {
   BackHandler,
   TouchableOpacity,
 } from "react-native";
-import { Appbar, Card, Divider, useTheme, Text } from "react-native-paper";
 import {
+  Appbar,
+  Card,
+  Button,
+  Text,
+  Divider,
+  useTheme,
+  IconButton,
+} from "react-native-paper";
+import {
+  Home,
   Checkin,
   TimeAttendance,
   Welfare,
@@ -33,15 +42,9 @@ const Dashboard = ({ navigation }) => {
   const Notification = () => {
     navigation.navigate("Notification");
   };
-
   return (
-    <ScrollView
-      contentContainerStyle={{
-        flexGrow: 1,
-        backgroundColor: theme.colors.background,
-      }}
-    >
-      <LinearGradient colors={["#580376", "#6a11cb"]} style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: theme.colors.background }}>
+      <LinearGradient colors={["#580376", "#6a11cb"]}>
         <Appbar.Header style={{ backgroundColor: "transparent", elevation: 0 }}>
           <View style={{ flexDirection: "row", alignItems: "center", flex: 1 }}>
             <Image
@@ -58,93 +61,185 @@ const Dashboard = ({ navigation }) => {
           <Appbar.Action icon="exit-to-app" onPress={exitApp} color="#fff" />
         </Appbar.Header>
       </LinearGradient>
-      {/* Banner */}
-      <View style={{ height: width / 3 }}>
-        <BannerSlide />
-      </View>
 
-      {/* Announcements */}
-      <Card style={{ margin: 10, backgroundColor: "#f8931f" }}>
-        <Card.Content>
-          <Text variant="headlineMedium" style={{ color: "#ffffff" }}>
-            ประกาศ
-          </Text>
-          <Text variant="titleMedium" style={{ color: "#ffffff" }}>
-            ประกาศจาก สำนักงานอธิการบดี แจ้งเพื่อทราบ
-          </Text>
-        </Card.Content>
-      </Card>
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <View style={{ height: width / 3 }}>
+          <BannerSlide />
+        </View>
+        <View>
+          <Card style={{ margin: 10, backgroundColor: "#f8931f" }}>
+            <Card.Content>
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                }}
+              >
+                <Text variant="headlineMedium" style={{ color: "#ffffff" }}>
+                  ประกาศ
+                </Text>
+              </View>
+              <Text variant="titleMedium" style={{ color: "#ffffff" }}>
+                ประกาศจาก สำนักงานอธิการบดี แจ้งเพื่อทราบ
+              </Text>
+            </Card.Content>
+          </Card>
 
-      {/* Menu Grid */}
-      <View style={styles.gridContainer}>
-        {[
-          { label: "เช็คอิน", screen: "CheckIn", svg: Checkin },
-          {
-            label: "เวลาการทำงาน",
-            screen: "TimeAttendance",
-            svg: TimeAttendance,
-          },
-          { label: "สวัสดิการ", screen: "Welfare", svg: Welfare },
-          { label: "แจ้งเตือน", screen: "Notification", svg: Notify },
-          { label: "แลกรางวัล", screen: "Mission", svg: Reward },
-          { label: "โปรโมชั่น", screen: "Mission", svg: Gift },
-          { label: "สวัสดิการ", screen: "Welfare", svg: Welfare },
-          { label: "แจ้งเตือน", screen: "Notification", svg: Notify },
-          { label: "แลกรางวัล", screen: "Mission", svg: Reward },
-          { label: "โปรโมชั่น", screen: "Mission", svg: Gift },
-          { label: "สวัสดิการ", screen: "Welfare", svg: Welfare },
-          { label: "แจ้งเตือน", screen: "Notification", svg: Notify },
-          { label: "แลกรางวัล", screen: "Mission", svg: Reward },
-          { label: "โปรโมชั่น", screen: "Mission", svg: Gift },
-          { label: "สวัสดิการ", screen: "Welfare", svg: Welfare },
-          { label: "แจ้งเตือน", screen: "Notification", svg: Notify },
-          { label: "แลกรางวัล", screen: "Mission", svg: Reward },
-          { label: "โปรโมชั่น", screen: "Mission", svg: Gift },
-        ].map((item, index) => (
-          <TouchableOpacity
-            key={index}
-            onPress={() => navigation.navigate(item.screen)}
-            style={styles.menuItem}
+          <View
+            style={{
+              flexDirection: "row",
+              flexWrap: "wrap",
+              justifyContent: "space-between",
+              paddingHorizontal: 10,
+            }}
           >
-            <item.svg width={50} height={50} />
-            <Text>{item.label}</Text>
-          </TouchableOpacity>
-        ))}
-      </View>
+            {[
+              {
+                icon: "map-marker",
+                label: "เช็คอิน",
+                screen: "CheckIn",
+                svg: Checkin,
+              },
+              {
+                icon: "google",
+                label: "เวลาการทำงาน",
+                screen: "TimeAttendance",
+                svg: TimeAttendance,
+              },
+              {
+                icon: "wallet",
+                label: "สวัสดิการ",
+                screen: "Welfare",
+                svg: Welfare,
+              },
+              {
+                icon: "clipboard-text",
+                label: "แจ้งเตือน",
+                screen: "Notification",
+                svg: Notify,
+              },
+              {
+                icon: "gift",
+                label: "แลกรางวัล",
+                screen: "Mission",
+                svg: Reward,
+              },
+              {
+                icon: "ticket",
+                label: "โปรโมชั่น",
+                screen: "Mission",
+                svg: Gift,
+              },
+              {
+                icon: "map-marker",
+                label: "เช็คอิน",
+                screen: "CheckIn",
+                svg: Checkin,
+              },
+              {
+                icon: "google",
+                label: "เวลาการทำงาน",
+                screen: "TimeAttendance",
+                svg: TimeAttendance,
+              },
+              {
+                icon: "wallet",
+                label: "สวัสดิการ",
+                screen: "Welfare",
+                svg: Welfare,
+              },
+              {
+                icon: "clipboard-text",
+                label: "แจ้งเตือน",
+                screen: "Notification",
+                svg: Notify,
+              },
+              {
+                icon: "gift",
+                label: "แลกรางวัล",
+                screen: "Mission",
+                svg: Reward,
+              },
+              {
+                icon: "ticket",
+                label: "โปรโมชั่น",
+                screen: "Mission",
+                svg: Gift,
+              },
+              {
+                icon: "map-marker",
+                label: "เช็คอิน",
+                screen: "CheckIn",
+                svg: Checkin,
+              },
+              {
+                icon: "google",
+                label: "เวลาการทำงาน",
+                screen: "TimeAttendance",
+                svg: TimeAttendance,
+              },
+              {
+                icon: "wallet",
+                label: "สวัสดิการ",
+                screen: "Welfare",
+                svg: Welfare,
+              },
+              {
+                icon: "clipboard-text",
+                label: "แจ้งเตือน",
+                screen: "Notification",
+                svg: Notify,
+              },
+              {
+                icon: "gift",
+                label: "แลกรางวัล",
+                screen: "Mission",
+                svg: Reward,
+              },
+              {
+                icon: "ticket",
+                label: "โปรโมชั่น",
+                screen: "Mission",
+                svg: Gift,
+              },
+            ].map((item, index) => (
+              <TouchableOpacity
+                key={index}
+                onPress={() => navigation.navigate(item.screen)}
+                style={{
+                  width: "30%",
+                  alignItems: "center",
+                  marginVertical: 10,
+                }}
+              >
+                {/* <IconButton icon={item.icon} size={40} /> */}
+                <item.svg width={50} height={50} />
+                <Text>{item.label}</Text>
+              </TouchableOpacity>
+            ))}
+          </View>
 
-      {/* Promotions */}
-      <Divider style={{ marginVertical: 10 }} />
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        style={{ padding: 10 }}
-      >
-        {["ฟรี ป้าย QR", "GrabFood ลด 50%", "บัญชีออมทอง"].map(
-          (promo, index) => (
-            <Card key={index} style={{ marginRight: 10, width: 200 }}>
-              <Card.Content>
-                <Text>{promo}</Text>
-              </Card.Content>
-            </Card>
-          )
-        )}
+          {/* Promotions */}
+          <Divider style={{ marginVertical: 10 }} />
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            style={{ padding: 10 }}
+          >
+            {["ฟรี ป้าย QR", "GrabFood ลด 50%", "บัญชีออมทอง"].map(
+              (promo, index) => (
+                <Card key={index} style={{ marginRight: 10, width: 200 }}>
+                  <Card.Content>
+                    <Text>{promo}</Text>
+                  </Card.Content>
+                </Card>
+              )
+            )}
+          </ScrollView>
+        </View>
       </ScrollView>
-    </ScrollView>
+    </View>
   );
 };
-
-const styles = StyleSheet.create({
-  gridContainer: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    justifyContent: "space-between",
-    paddingHorizontal: 10,
-  },
-  menuItem: {
-    width: "30%",
-    alignItems: "center",
-    marginVertical: 10,
-  },
-});
 
 export default Dashboard;
