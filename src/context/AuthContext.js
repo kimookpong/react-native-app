@@ -8,6 +8,7 @@ export function AuthProvider({ children }) {
   const [pin, setPin] = useState(null);
   const [pinAccess, setPinAccess] = useState(false);
   const [isDarkMode, setIsDark] = useState(false);
+  const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     async function loadUser() {
@@ -17,6 +18,8 @@ export function AuthProvider({ children }) {
 
       const darkMode = await auth.getDarkMode();
       setIsDark(darkMode === "true");
+
+      setLoading(false);
     }
     loadUser();
   }, []);
@@ -59,6 +62,7 @@ export function AuthProvider({ children }) {
         setPinAccess,
         isDarkMode,
         setDarkMode,
+        isLoading,
       }}
     >
       {children}

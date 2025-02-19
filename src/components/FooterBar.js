@@ -3,15 +3,16 @@ import React from "react";
 import { Text } from "react-native-paper";
 import { MaterialCommunityIcons } from "react-native-vector-icons";
 import { useTheme } from "react-native-paper";
+import { Home, News, User, Setting, Scan } from "./svg";
 
 const FooterBar = ({ navigation, currentScreen }) => {
   const theme = useTheme();
   const menuItems = [
-    { icon: "home", label: "หน้าหลัก", screen: "Dashboard" },
-    { icon: "newspaper", label: "ข่าวสาร", screen: "News" },
-    { icon: "qrcode-scan", label: "สแกน", screen: "Qr" },
-    { icon: "cog", label: "ตั้งค่า", screen: "Settings" },
-    { icon: "account-circle", label: "โปรไฟล์", screen: "Profile" },
+    { icon: "home", label: "หน้าหลัก", screen: "Dashboard", svg: Home },
+    { icon: "newspaper", label: "ข่าวสาร", screen: "News", svg: News },
+    { icon: "qrcode-scan", label: "สแกน", screen: "Qr", svg: Scan },
+    { icon: "cog", label: "ตั้งค่า", screen: "Settings", svg: Setting },
+    { icon: "account-circle", label: "โปรไฟล์", screen: "Profile", svg: User },
   ];
 
   return (
@@ -24,11 +25,13 @@ const FooterBar = ({ navigation, currentScreen }) => {
           onPress={() => navigation.navigate(item.screen)}
           style={styles.menuItem}
         >
-          <MaterialCommunityIcons
+          {/* <MaterialCommunityIcons
             name={item.icon}
             size={28}
             color={currentScreen === item.screen ? "blue" : "gray"}
-          />
+          /> */}
+          <item.svg width={36} height={36} />
+
           <Text
             style={[
               styles.menuLabel,

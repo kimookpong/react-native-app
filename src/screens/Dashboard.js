@@ -1,4 +1,4 @@
-import React, { useRef , useContext } from "react";
+import React, { useRef, useContext } from "react";
 import {
   View,
   ScrollView,
@@ -17,17 +17,11 @@ import {
   useTheme,
   IconButton,
 } from "react-native-paper";
-
+import { Home, Checkin, TimeAttendance, Welfare } from "../components/svg";
 import Carousel from "react-native-reanimated-carousel";
 import { AuthContext } from "../context/AuthContext";
 
 const width = Dimensions.get("window").width;
-
-
-
-
-
-
 
 const Dashboard = ({ navigation }) => {
   const theme = useTheme();
@@ -83,7 +77,7 @@ const Dashboard = ({ navigation }) => {
 
       <View>
         <ScrollView>
-          <Card style={{ margin: 10 ,backgroundColor: '#ffcc00'}}>
+          <Card style={{ margin: 10, backgroundColor: "#ffcc00" }}>
             <Card.Content>
               <View
                 style={{
@@ -93,7 +87,9 @@ const Dashboard = ({ navigation }) => {
               >
                 <Text variant="headlineMedium">ประกาศ</Text>
               </View>
-              <Text variant="titleMedium">ประกาศจาก สำนักงานอธิการบดี แจ้งเพื่อทราบ</Text>
+              <Text variant="titleMedium">
+                ประกาศจาก สำนักงานอธิการบดี แจ้งเพื่อทราบ
+              </Text>
             </Card.Content>
           </Card>
 
@@ -110,20 +106,38 @@ const Dashboard = ({ navigation }) => {
                 icon: "map-marker",
                 label: "เช็คอิน",
                 screen: "CheckIn",
+                svg: Checkin,
               },
               {
                 icon: "google",
                 label: "TimeAttendance",
                 screen: "TimeAttendance",
+                svg: TimeAttendance,
               },
-              { icon: "wallet", label: "สวัสดิการ", screen: "Welfare" },
+              {
+                icon: "wallet",
+                label: "สวัสดิการ",
+                screen: "Welfare",
+                svg: Welfare,
+              },
               {
                 icon: "clipboard-text",
                 label: "แจ้งเตือน",
                 screen: "Notification",
+                svg: Home,
               },
-              { icon: "gift", label: "แลกรางวัล", screen: "Mission" },
-              { icon: "ticket", label: "โปรโมชั่น", screen: "Mission" },
+              {
+                icon: "gift",
+                label: "แลกรางวัล",
+                screen: "Mission",
+                svg: Home,
+              },
+              {
+                icon: "ticket",
+                label: "โปรโมชั่น",
+                screen: "Mission",
+                svg: Home,
+              },
             ].map((item, index) => (
               <TouchableOpacity
                 key={index}
@@ -134,7 +148,8 @@ const Dashboard = ({ navigation }) => {
                   marginVertical: 10,
                 }}
               >
-                <IconButton icon={item.icon} size={40} />
+                {/* <IconButton icon={item.icon} size={40} /> */}
+                <item.svg width={36} height={36} />
                 <Text>{item.label}</Text>
               </TouchableOpacity>
             ))}
