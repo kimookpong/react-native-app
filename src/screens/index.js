@@ -12,5 +12,5 @@ export { default as NewsScreen } from "./NewsScreen";
 export { default as TimeAttendanceScreen } from "./TimeAttendance";
 
 export { default as WelfareScreen } from "./Welfare";
-export { default as NotificationScreen } from "./Notification"; 
+export { default as NotificationScreen } from "./Notification";
 export { default as CheckInScreen } from "./CheckIn";

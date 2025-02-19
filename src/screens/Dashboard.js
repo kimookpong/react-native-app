@@ -17,7 +17,15 @@ import {
   useTheme,
   IconButton,
 } from "react-native-paper";
-import { Home, Checkin, TimeAttendance, Welfare } from "../components/svg";
+import {
+  Home,
+  Checkin,
+  TimeAttendance,
+  Welfare,
+  Notify,
+  Reward,
+  Gift,
+} from "../components/svg";
 import Carousel from "react-native-reanimated-carousel";
 import { AuthContext } from "../context/AuthContext";
 
@@ -124,19 +132,19 @@ const Dashboard = ({ navigation }) => {
                 icon: "clipboard-text",
                 label: "แจ้งเตือน",
                 screen: "Notification",
-                svg: Home,
+                svg: Notify,
               },
               {
                 icon: "gift",
                 label: "แลกรางวัล",
                 screen: "Mission",
-                svg: Home,
+                svg: Reward,
               },
               {
                 icon: "ticket",
                 label: "โปรโมชั่น",
                 screen: "Mission",
-                svg: Home,
+                svg: Gift,
               },
             ].map((item, index) => (
               <TouchableOpacity
@@ -149,7 +157,7 @@ const Dashboard = ({ navigation }) => {
                 }}
               >
                 {/* <IconButton icon={item.icon} size={40} /> */}
-                <item.svg width={36} height={36} />
+                <item.svg width={46} height={46} />
                 <Text>{item.label}</Text>
               </TouchableOpacity>
             ))}
