@@ -6,18 +6,11 @@ import Background from "../../components/Background";
 import TopBar from "../../components/TopBar";
 import { AuthContext } from "../../context/AuthContext";
 import { getDatetext } from "../../core/utils";
-import { Appbar } from "react-native-paper";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1, // Makes the container take up the full screen
     padding: 15
-  },
-  card: { 
-    backgroundColor: '#f9c2ff', 
-    padding: 15, 
-    marginVertical: 8, 
-    borderRadius: 10 
   },
   text: { 
     fontSize: 18 
@@ -41,6 +34,24 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "gray",
     fontSize: "12",
+  },
+  container2: {
+    flexDirection: "row",
+    flexWrap: "wrap", // ทำให้ไปขึ้นบรรทัดใหม่อัตโนมัติ
+    justifyContent: "space-around",
+    padding: 10,
+  },
+  box2: {
+    width: "45%", // ขนาดกล่องแต่ละอัน
+    height: 100,
+    backgroundColor: "#4CAF50",
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: 10,
+  },
+  text2: {
+    color: "white",
+    fontSize: 18,
   },
   containerTime: {
     flexDirection: 'row', // จัดเรียง text ในแนวนอน
@@ -101,7 +112,7 @@ const statusColor = (status, leaveday) => {
   return color;
 };
 
-const Schedule = ({ navigation }) => {
+const Home = ({ navigation }) => {
   const { user } = useContext(AuthContext);
   console.log("user", user);
 
@@ -195,62 +206,31 @@ const Schedule = ({ navigation }) => {
   return (
     <Background>
       {/* Header session */}
-      <TopBar title="ตารางปฏิบัติงาน" right={() => navigation.navigate("Main")} rightIcon="menu" />
-
-      {user && <Text>{user.person_id}</Text>}
-
-      <TouchableOpacity onPress={() => navigation.navigate("Timestamp")}>
-        <Text>test to go to Timestamp</Text>
-      </TouchableOpacity>
-
-      <View style={styles.dropdownMonth}>
-        <Dropdown
-          // label="เดือน"
-          placeholder="กรุณาเลือกเดือน"
-          options={optionMonth}
-          value={month}
-          onSelect={handleSelect}
-          mode='outlined'
-        />
-      </View>
+      <TopBar title="Dashboard" right={() => navigation.navigate("Main")} rightIcon="menu" />
 
       {/* Body session */}
       <ScrollView style={styles.container} contentContainerStyle={{paddingBottom: 50}}>
-          {
-            (loading 
-              ? <ActivityIndicator size="large" color="blue" /> 
-              : <View>
-                  <List.Section>
-                    {shift.map((row,index) => (
-                      <View>
-                        <List.Item key={index}
-                          title={<Text style={styles.labelDate}>{"วันที่ " + getDatetext(row.startDate, "th", "l")}</Text>}
-                          description={
-                            // <View><Text>{row.shiftTypeName + ": " + row.shiftName}</Text><Text>{"เข้า: " + row.timeCheckin + "   ออก: " + row.timeCheckout}</Text></View>
-                            <View>
-                              <View>
-                                <Text style={styles.labelShift}>{row.shiftTypeName + ": " + row.shiftName}</Text>
-                              </View>
-                              <View style={styles.containerTime}>
-                                <Text style={styles.labelClockIn}>{"เข้า: " + row.timeCheckin}</Text>
-                                <Text style={styles.labelClockOut}>{"ออก: " + row.timeCheckout}</Text>
-                              </View>
-                            </View>
-                          }
-                          // left={props => <List.Icon {...props} icon="circle" color="red" />}
-                          right={props => <View style={{textAlign: "center"}}><List.Icon {...props} icon="circle" color={statusColor(row.status, row.leaveDay)} style={styles.iconStatus} /><Text style={styles.textStatus}>{row.statusNameTh}</Text></View>}
-                          style={styles.listShift}
-                        />
-                        <Divider />
-                      </View>
-                      ))
-                    }
-                  </List.Section>
-              </View>)
-          }
-        </ScrollView>
+        {
+          (loading 
+            ? <ActivityIndicator size="large" color="blue" /> 
+            : <View>
+                <Card>
+                  <Card.Content>
+                    <Text>Card title</Text>
+                    <Text>{user && <Text>{user.person_id}</Text>}</Text>
+                  </Card.Content>
+                </Card>
+            </View>)
+        }
+      </ScrollView>
+      <View style={styles.container2}>
+        <View style={styles.box2}><Text style={styles.text2}>1</Text></View>
+        <View style={styles.box2}><Text style={styles.text2}>2</Text></View>
+        <View style={styles.box2}><Text style={styles.text2}>3</Text></View>
+        <View style={styles.box2}><Text style={styles.text2}>4</Text></View>
+      </View>
     </Background>
   );
 };
 
-export default Schedule;
+export default Home;
