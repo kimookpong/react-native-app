@@ -206,8 +206,8 @@ const AppNavigator = ({ navigation }) => (
 const styles = StyleSheet.create({
   badge: {
     position: "absolute",
-    right: -6,
-    top: -3,
+    right: -9,
+    top: -9,
     backgroundColor: "red",
     borderRadius: 10,
     width: 18,
