@@ -118,7 +118,7 @@ const Dashboard = ({ navigation }) => {
               },
               {
                 icon: "google",
-                label: "TimeAttendance",
+                label: "เวลาการทำงาน",
                 screen: "TimeAttendance",
                 svg: TimeAttendance,
               },
@@ -157,7 +157,7 @@ const Dashboard = ({ navigation }) => {
                 }}
               >
                 {/* <IconButton icon={item.icon} size={40} /> */}
-                <item.svg width={46} height={46} />
+                <item.svg width={50} height={50} />
                 <Text>{item.label}</Text>
               </TouchableOpacity>
             ))}
