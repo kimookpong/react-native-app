@@ -4,6 +4,7 @@ import { Text } from "react-native-paper";
 import { MaterialCommunityIcons } from "react-native-vector-icons";
 import { useTheme } from "react-native-paper";
 import { Home, News, User, Setting, Scan } from "./svg";
+import { LinearGradient } from "expo-linear-gradient";
 
 const FooterBar = ({ navigation, currentScreen }) => {
   const theme = useTheme();
@@ -16,27 +17,32 @@ const FooterBar = ({ navigation, currentScreen }) => {
   ];
 
   return (
-    <View
-      // style={[styles.footerBar, { backgroundColor: theme.colors.background }]}
-      style={styles.footerBar}
+    <LinearGradient
+      // colors={["#580376"]}
+      colors={["#6a11cb", "#580376"]}
     >
-      {menuItems.map((item, index) => (
-        <TouchableOpacity
-          key={index}
-          onPress={() => navigation.navigate(item.screen)}
-          style={styles.menuItem}
-        >
-          {/* <MaterialCommunityIcons
+      <View
+        // style={[styles.footerBar, { backgroundColor: theme.colors.background }]}
+        style={styles.footerBar}
+      >
+        {menuItems.map((item, index) => (
+          <TouchableOpacity
+            key={index}
+            onPress={() => navigation.navigate(item.screen)}
+            style={styles.menuItem}
+          >
+            {/* <MaterialCommunityIcons
             name={item.icon}
             size={28}
             color={currentScreen === item.screen ? "blue" : "gray"}
           /> */}
-          <item.svg width={36} height={36} />
+            <item.svg width={36} height={36} />
 
-          <Text style={styles.menuLabel}>{item.label}</Text>
-        </TouchableOpacity>
-      ))}
-    </View>
+            <Text style={styles.menuLabel}>{item.label}</Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+    </LinearGradient>
   );
 };
 
@@ -45,7 +51,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     paddingVertical: 10,
-    backgroundColor: "#580376",
+    // backgroundColor: "#580376",
     width: "100%",
     elevation: 10,
     shadowColor: "#000",
