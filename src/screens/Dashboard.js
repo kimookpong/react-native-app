@@ -17,19 +17,10 @@ import {
   useTheme,
   IconButton,
 } from "react-native-paper";
-import {
-  Home,
-  Checkin,
-  TimeAttendance,
-  Welfare,
-  Notify,
-  Reward,
-  Gift,
-} from "../components/svg";
 import { LinearGradient } from "expo-linear-gradient";
 import { AuthContext } from "../context/AuthContext";
 import BannerSlide from "../components/contents/BannerSlide";
-import MenuList from "../components/contents/MenuList";
+import MenuContent from "../components/contents/MenuContent";
 
 const width = Dimensions.get("window").width;
 
@@ -86,7 +77,7 @@ const Dashboard = ({ navigation }) => {
             </Card.Content>
           </Card>
 
-          <MenuList />
+          <MenuContent />
 
           <Divider style={{ marginVertical: 10 }} />
           <ScrollView

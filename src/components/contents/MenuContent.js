@@ -1,15 +1,8 @@
 import { View, Text, TouchableOpacity } from "react-native";
-import {
-  Checkin,
-  TimeAttendance,
-  Welfare,
-  Notify,
-  Reward,
-  Gift,
-} from "../../components/svg";
+import { Checkin, TimeAttendance, Welfare, Notify, Reward, Gift } from "../svg";
 import React from "react";
 
-const MenuList = () => {
+const MenuContent = () => {
   const menu = [
     {
       icon: "map-marker",
@@ -148,4 +141,4 @@ const MenuList = () => {
   );
 };
 
-export default MenuList;
+export default MenuContent;
