@@ -3,6 +3,7 @@ import { View, StyleSheet } from "react-native";
 import { Text, Avatar, Card, Divider } from "react-native-paper";
 import { AuthContext } from "../context/AuthContext";
 import BackgroundImage from "../components/BackgroundImage";
+import QRCode from "react-native-qrcode-svg";
 
 export default function ProfileScreen({ navigation }) {
   const { user, logout } = useContext(AuthContext);
@@ -22,7 +23,7 @@ export default function ProfileScreen({ navigation }) {
       >
         <View style={styles.profileSection}>
           <Avatar.Image
-            size={150}
+            size={120}
             style={styles.avatar}
             source={{ uri: user?.avatar || "https://i.pravatar.cc/150?img=3" }}
           />
@@ -42,6 +43,27 @@ export default function ProfileScreen({ navigation }) {
             <Text variant="bodyLarge">
               {user?.division_th || "ไม่มีหน่วยงาน"}
             </Text>
+            <View
+              style={{
+                paddingVertical: 15,
+                alignItems: "center",
+              }}
+            >
+              <View
+                style={{
+                  padding: 15,
+                  backgroundColor: "white",
+                }}
+              >
+                <QRCode
+                  value={user.person_id}
+                  size={250}
+                  backgroundColor="white"
+                  // logo={require("../assets/logo.png")}
+                  // logoSize={50}
+                />
+              </View>
+            </View>
             <Divider style={{ marginVertical: 10 }} />
             <Text style={styles.token}>{user?.token || "ไม่มี Token"}</Text>
           </Card.Content>
